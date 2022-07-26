@@ -105,7 +105,9 @@ for(let i = 0; i < BOXES.length; i++){
                 let score = calculateScore(SCORE_BOARD)[0];
                 PLAYER[0].innerHTML = `Player 1: ${score}`;
                 // Computer turn
-                setTimeout(()=> {computerTurn(SCORE_BOARD)},500);
+                if(gameInPlay === true){
+                    setTimeout(()=> {computerTurn(SCORE_BOARD)},500);
+                }
                 TURN = true;
             }
         }
@@ -122,7 +124,7 @@ const computerTurn = (SCORE_BOARD) => {
         }
         console.log(`computerMove is: ${computerMove}`);
         SCORE_BOARD[computerMove] = -1;
-        BOXES[computerMove].innerHTML = "Y";
+        BOXES[computerMove].innerHTML = "O";
         BOXES[computerMove].style.color = "red";
         let score = calculateScore(SCORE_BOARD)[1];
         PLAYER[1].innerHTML = `Computer: ${score}`;
