@@ -4,19 +4,7 @@ let gameInPlay = true;
 let TURN = false;
 
 // Create Scoreboard
-const createBoard = (rowSize, colSize) => {
-    let SCORE_BOARD = [];
-    for(let i = 0; i < rowSize; i++ ){
-        SCORE_BOARD.push(0);
-        for(let j = 0; j < colSize; j++){
-            SCORE_BOARD.push(0);
-        }
-    }
-    console.log(`Scoreboard is: ${SCORE_BOARD}`);
-    return SCORE_BOARD;
-}
-
-const SCORE_BOARD = createBoard(3,3);
+const SCORE_BOARD = [0,0,0,0,0,0,0,0,0];
 
 // Calculate score and winner
 const calculateScore = (SCORE_BOARD) => {
@@ -130,26 +118,6 @@ for(let i = 0; i < BOXES.length; i++){
         }
     })
 }
-
-// const mouseOverFunction = () => {
-//     for(let i = 0; i < BOXES.length; i++){
-//     BOXES[i].addEventListener("mouseover", async() => {
-//                 BOXES[i].innerHTML = "X";
-//                 BOXES[i].style.color = "blue";
-//                 BOXES[i].style.opacity = "0.7";
-//                 BOXES[i].style.backgroundColor = "blue";
-//         })
-//     }
-// }
-// const mouseOutFunction = () => {
-//     for(let i = 0; i < BOXES.length; i++){
-//     BOXES[i].addEventListener("mouseover", async() => {
-//                 BOXES[i].innerHTML = "";
-//         })
-//     }
-// }
-
-
 
 // Clear board
 let CLEAR = document.getElementsByClassName("clear");

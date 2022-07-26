@@ -96,6 +96,7 @@ for(let i = 0; i < BOXES.length; i++){
         if(TURN === true && gameInPlay === true){
             // while loop prevents double clicking boxes
             while(SCORE_BOARD[i] === 0){
+                // Turns variable forces turns between player and computer
                 TURN = false;
                 BOXES[i].innerHTML = "X";
                 BOXES[i].style.color = "blue";
@@ -104,11 +105,10 @@ for(let i = 0; i < BOXES.length; i++){
                 console.log(`GameInPlay is: ${gameInPlay}`);
                 let score = calculateScore(SCORE_BOARD)[0];
                 PLAYER[0].innerHTML = `Player 1: ${score}`;
-                // Computer turn
+                // Computer turn, and adds delay
                 if(gameInPlay === true){
                     setTimeout(()=> {computerTurn(SCORE_BOARD)},500);
                 }
-                TURN = true;
             }
         }
     })
@@ -129,6 +129,7 @@ const computerTurn = (SCORE_BOARD) => {
         let score = calculateScore(SCORE_BOARD)[1];
         PLAYER[1].innerHTML = `Computer: ${score}`;
         console.log(`After computer turn, scoreboard is: ${SCORE_BOARD}`);
+        TURN = true;
     }
 }
 
